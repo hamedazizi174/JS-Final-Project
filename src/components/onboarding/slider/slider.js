@@ -68,6 +68,7 @@ export default function Slider() {
               swiper.slideNext();
               if (swiper.activeIndex === 2) {
                 event.target.innerText = "Get Started";
+                localStorage.setItem("firstTime", "No");
                 // Router().navigation("/login");
               }
             },
