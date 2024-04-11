@@ -12,3 +12,19 @@
     font-family: "inter", system-ui, sans-serif;
   }
 }
+
+.swiper-pagination {
+  bottom: 100px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 30px !important;
+  height: 3px !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  margin-left: 6px !important;
+  border-radius: 1px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: black !important;
+}

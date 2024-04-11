@@ -1,6 +1,6 @@
 import El from "@/utils/El/El.js";
 
-export default function two() {
+export default function Two() {
   return El({
     element: "div",
     className:

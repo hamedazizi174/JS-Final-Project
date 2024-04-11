@@ -1,10 +1,19 @@
 import El from "@/utils/El/El.js";
-import one from "./one/one.js";
-import two from "./two/two.js";
+import One from "./one/one.js";
+import Two from "./two/two.js";
+import Slider from "./slider/slider.js";
 
-export default function onboarding() {
+// function returnOnboarding() {
+//   One();
+//   setTimeout(() => {
+//     Two;
+//     setTimeout(Slider(), 3000);
+//   }, 3000);
+// }
+
+export default function Onboarding() {
   return El({
     element: "div",
-    children: [two()],
+    children: [Slider()],
   });
 }

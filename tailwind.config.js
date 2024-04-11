@@ -5,6 +5,10 @@ export default {
     extend: {
       fontSize: {
         40: "40px",
+        32: "32px",
+      },
+      colors: {
+        dark: "#212529",
       },
     },
   },

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "json-server": "^0.17.4",
-    "navigo": "^8.11.1"
+    "navigo": "^8.11.1",
+    "swiper": "^11.1.1"
   }
 }
