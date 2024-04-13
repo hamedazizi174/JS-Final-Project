@@ -1,3 +1,4 @@
+import Button from "@/components/shared/button/button";
 import El from "@/utils/El/El";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
@@ -55,33 +56,28 @@ export default function Slider() {
         element: "div",
         className: "swiper-pagination",
       }),
-      El({
-        element: "button",
-        className:
-          "absolute flex justify-center items-center text-white bottom-8 left-6 py-3 px-4 w-[380px] h-11 top-auto bg-dark rounded-[30px] z-10",
-        innerText: "Next",
-        eventListener: [
-          {
-            event: "click",
-            callback: (event) => {
-              const swiper = document.querySelector(".swiper").swiper;
-              swiper.slideNext();
-              if (swiper.activeIndex === 2) {
-                event.target.innerText = "Get Started";
-                localStorage.setItem("firstTime", "No");
-                // Router().navigation("/login");
-              }
-            },
+      Button("Next", "absolute bottom-8 left-6 z-10 top-auto w-[380px] h-11", [
+        {
+          event: "click",
+          callback: (event) => {
+            const swiper = document.querySelector(".swiper").swiper;
+            swiper.slideNext();
+            console.log(swiper);
+            if (swiper.activeIndex === 2) {
+              event.target.innerText = "Get Started";
+              localStorage.setItem("firstTime", "No");
+              // Router().navigation("/login");
+            }
           },
-        ],
-      }),
+        },
+      ]),
     ],
   });
 }
 function configSwiper() {
   const swiper = new Swiper(".swiper", {
     // cssMode: true,
-    allowSlidePrev: false,
+    allowTouchMove: false,
     pagination: {
       el: ".swiper-pagination",
     },
