@@ -30,8 +30,10 @@ export default function LoginForm() {
           }),
           El({
             element: "input",
+            id: "email",
             className: "bg-transparent pb-0.5 grow outline-none",
             type: "email",
+            name: "email",
             placeholder: "Email",
             required: true,
             eventListener: [
@@ -63,8 +65,10 @@ export default function LoginForm() {
           }),
           El({
             element: "input",
+            id: "password",
             type: "password",
             className: "bg-transparent grow outline-none",
+            name: "password",
             placeholder: "Password",
             required: true,
             eventListener: [
@@ -134,8 +138,7 @@ export default function LoginForm() {
         children: [
           El({
             element: "input",
-            className:
-              "rounded w-4 h-4 mr-2 accent-black border-4 border-blue-500",
+            className: "rounded w-4 h-4 mr-2 accent-black",
             type: "checkbox",
           }),
           El({
@@ -145,13 +148,35 @@ export default function LoginForm() {
           }),
         ],
       }),
-      Button("Sign in", "absolute bottom-8 left-6 w-[380px] h-11"),
+      Button(
+        "Sign in",
+        "absolute bottom-8 left-6 w-[380px] h-11 cursor-not-allowed opacity-65",
+        [],
+        "disabled:true"
+      ),
     ],
     eventListener: [
       {
         event: "submit",
         callback: (event) => {
           event.preventDefault();
+          const user = Object.fromEntries(new FormData(event.target));
+          console.log(user);
+        },
+      },
+      {
+        event: "input",
+        callback: () => {
+          const email = document.getElementById("email");
+          const password = document.getElementById("password");
+          const login = document.querySelector("button");
+          if (email.value !== "" && password.value !== "") {
+            login.classList.remove("cursor-not-allowed", "opacity-65");
+            login.disabled = false;
+          } else {
+            login.classList.add("cursor-not-allowed", "opacity-65");
+            login.disabled = true;
+          }
         },
       },
     ],

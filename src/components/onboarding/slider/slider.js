@@ -62,7 +62,6 @@ export default function Slider() {
           callback: (event) => {
             const swiper = document.querySelector(".swiper").swiper;
             swiper.slideNext();
-            console.log(swiper);
             if (swiper.activeIndex === 2) {
               event.target.innerText = "Get Started";
               localStorage.setItem("firstTime", "No");
