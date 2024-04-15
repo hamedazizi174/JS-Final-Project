@@ -1,3 +1,4 @@
+import { router } from "@/routes/routes";
 import El from "@/utils/El/El.js";
 
 export default function Header() {
@@ -9,6 +10,15 @@ export default function Header() {
         element: "img",
         className: "cursor-pointer",
         src: "./src/assets/images/arrow-left-short.svg",
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              localStorage.removeItem("firstTime");
+              router.navigate("/");
+            },
+          },
+        ],
       }),
       El({
         element: "img",

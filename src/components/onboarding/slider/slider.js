@@ -1,4 +1,5 @@
 import Button from "@/components/shared/button/button";
+import { router } from "@/routes/routes";
 import El from "@/utils/El/El";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
@@ -61,12 +62,14 @@ export default function Slider() {
           event: "click",
           callback: (event) => {
             const swiper = document.querySelector(".swiper").swiper;
-            swiper.slideNext();
-            if (swiper.activeIndex === 2) {
+            if (swiper.activeIndex === 1) {
               event.target.innerText = "Get Started";
-              localStorage.setItem("firstTime", "No");
-              // Router().navigation("/login");
             }
+            if (swiper.activeIndex === 2) {
+              localStorage.setItem("firstTime", "No");
+              router.navigate("/login");
+            }
+            swiper.slideNext();
           },
         },
       ]),
