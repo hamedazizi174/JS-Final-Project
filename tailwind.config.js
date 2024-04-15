@@ -6,9 +6,11 @@ export default {
       fontSize: {
         40: "40px",
         32: "32px",
+        10: "10px",
       },
       colors: {
         dark: "#212529",
+        primary: "#152536",
         lightGrey: "#fafafa",
       },
     },

@@ -27,7 +27,7 @@ export default function Header() {
       }),
       El({
         element: "p",
-        className: "text-32 font-semibold text-center",
+        className: "text-32 font-semibold text-center text-primary",
         innerText: "Login to Your Account",
       }),
     ],
