@@ -11,7 +11,7 @@ export default function nav() {
   return El({
     element: "div",
     className:
-      "flex justify-center items-center gap-11 pt-3 px-12 pb-4 fixed bottom-0",
+      "flex justify-center items-center gap-11 pt-3 px-12 pb-4 fixed bottom-0 bg-white",
     children: [
       NavItem(homeFill, "Home"),
       NavItem(cartEmpty, "Cart"),
