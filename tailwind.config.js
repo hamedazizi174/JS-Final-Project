@@ -12,6 +12,8 @@ export default {
         dark: "#212529",
         primary: "#152536",
         lightGrey: "#fafafa",
+        lighterGrey: "#757475",
+        secondry: "#343a40",
       },
     },
   },

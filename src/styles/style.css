@@ -11,6 +11,10 @@
   html {
     font-family: "inter", system-ui, sans-serif;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .swiper-pagination {
