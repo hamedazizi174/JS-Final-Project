@@ -2,13 +2,13 @@ import Product from "@/components/shared/product/product";
 import { getData } from "@/library/axios/axios";
 import El from "@/utils/El/El";
 
-export default function Products() {
+export default function Products(endpoint) {
   const productWrapper = El({
     element: "div",
     className: "grid grid-cols-2 gap-x-4 gap-y-6 pb-20",
   });
 
-  getData("products").then((res) => {
+  getData(endpoint).then((res) => {
     res.forEach((product) => {
       productWrapper.append(
         Product(product.name, product.imageURL, product.price)

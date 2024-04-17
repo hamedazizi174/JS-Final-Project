@@ -1,3 +1,4 @@
+import { router } from "@/routes/routes";
 import El from "@/utils/El/El";
 
 const asics = "http://localhost:5173/src/assets/images/asics.png";
@@ -17,6 +18,14 @@ export default function Brands() {
       El({
         element: "img",
         src: nike,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
