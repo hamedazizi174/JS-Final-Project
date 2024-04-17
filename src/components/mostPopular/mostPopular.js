@@ -7,6 +7,6 @@ export default function MostPopularPage() {
   return El({
     element: "div",
     className: "px-6 pt-20",
-    children: [HomeHeader(), MostPopular(), Products("products")],
+    children: [HomeHeader("Most Popular"), MostPopular(), Products("products")],
   });
 }

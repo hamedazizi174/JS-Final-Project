@@ -1,3 +1,4 @@
+import { router } from "@/routes/routes";
 import El from "@/utils/El/El";
 
 const profilePicture =
@@ -36,6 +37,14 @@ export default function Header() {
       El({
         element: "img",
         src: "./src/assets/images/likeEmpty.svg",
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/wishlist");
+            },
+          },
+        ],
       }),
     ],
   });

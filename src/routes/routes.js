@@ -3,6 +3,7 @@ import homePage from "@/pages/home/home";
 import loginPage from "@/pages/login/login";
 import mostPopularPage from "@/pages/mostPopular/mostPopular";
 import onboardingPage from "@/pages/onboarding/onboarding";
+import wishlistPage from "@/pages/wishlist/wishlist";
 import changePage from "@/utils/changePage/changePage";
 import Navigo from "navigo";
 
@@ -23,4 +24,7 @@ router
   })
   .on("/mostPopular", () => {
     changePage(mostPopularPage);
+  })
+  .on("/wishlist", () => {
+    changePage(wishlistPage);
   });

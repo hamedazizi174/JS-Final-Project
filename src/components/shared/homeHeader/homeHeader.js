@@ -3,7 +3,7 @@ import El from "@/utils/El/El";
 
 const src = "http://localhost:5173/src/assets/images/arrow-left-short.svg";
 
-export default function HomeHeader(brand) {
+export default function HomeHeader(brand, elem) {
   return El({
     element: "div",
     className: "py-3 flex items-center gap-3 fixed top-0 w-full bg-white",
@@ -22,9 +22,10 @@ export default function HomeHeader(brand) {
       }),
       El({
         element: "p",
-        className: "text-primary font-semibold text-xl",
+        className: "text-primary font-semibold text-xl h-8",
         innerText: brand,
       }),
+      elem,
     ],
   });
 }
