@@ -1,3 +1,4 @@
+import { router } from "@/routes/routes";
 import El from "@/utils/El/El";
 
 export default function Product(name, src, price) {
@@ -21,6 +22,14 @@ export default function Product(name, src, price) {
         className: "text-primary font-semibold",
         innerText: `$${price}`,
       }),
+    ],
+    eventListener: [
+      {
+        event: "click",
+        callback: () => {
+          router.navigate("/singleProduct");
+        },
+      },
     ],
   });
 }
