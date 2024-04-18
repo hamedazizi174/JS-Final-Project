@@ -1,21 +1,37 @@
 import El from "@/utils/El/El";
 import HomeHeader from "../shared/homeHeader/homeHeader";
 import Button from "../shared/button/button";
+import { router } from "@/routes/routes";
+import { patchData } from "@/library/axios/axios";
 
-export default function SingleProduct(product) {
+export default function SingleProduct(data) {
+  // console.log(data);
+  function minus() {
+    let quantity = document.getElementById("quantity");
+    let price = document.getElementById("price");
+    if (quantity.innerText > 0) {
+      quantity.innerText--;
+    }
+    price.innerText = quantity.innerText * data.price;
+  }
+  function plus() {
+    let quantity = document.getElementById("quantity");
+    let price = document.getElementById("price");
+    quantity.innerText++;
+    price.innerText = quantity.innerText * data.price;
+  }
   return El({
     element: "div",
-    className: "px-6 pt-20 relative",
+    className: "px-6 relative",
     children: [
       HomeHeader(),
       El({
         element: "img",
         className: "h-96",
-        // src: product.imageURL,
+        src: data.imageURL,
       }),
       El({
         element: "div",
-        className: "mb-4",
         children: [
           El({
             element: "div",
@@ -24,11 +40,11 @@ export default function SingleProduct(product) {
               El({
                 element: "h1",
                 className: "w-64 text-xl font-bold",
-                // innerText: product.name,
+                innerText: data.name,
               }),
               El({
-                element: "div",
-                src: "",
+                element: "img",
+                src: "/src/assets/images/likeEmpty.svg",
               }),
             ],
           }),
@@ -48,7 +64,8 @@ export default function SingleProduct(product) {
                 children: [
                   El({
                     element: "img",
-                    src: "",
+                    className: "w-7",
+                    src: "/src/assets/images/star.svg",
                   }),
                   El({
                     element: "span",
@@ -66,7 +83,7 @@ export default function SingleProduct(product) {
       }),
       El({
         element: "div",
-        className: "py-6",
+        className: "py-2",
         children: [
           El({
             element: "div",
@@ -106,20 +123,20 @@ export default function SingleProduct(product) {
                       El({
                         element: "div",
                         className: "flex gap-2 mb-3",
-                        // children: product.sizes.map((size) => {
-                        //   return El({
-                        //     element: "div",
-                        //     className:
-                        //       "w-9 h-9 flex justify-center items-center text-secondry border-solid border-secondry border-2 rounded-full",
-                        //     children: [
-                        //       El({
-                        //         element: "span",
-                        //         className: "text-xs font-bold",
-                        //         innerText: size,
-                        //       }),
-                        //     ],
-                        //   });
-                        // }),
+                        children: data.sizes.map((size) => {
+                          return El({
+                            element: "div",
+                            className:
+                              "w-9 h-9 flex justify-center items-center text-secondry border-solid border-secondry border-2 rounded-full hover:bg-lighterGrey hover:text-white",
+                            children: [
+                              El({
+                                element: "span",
+                                className: "text-xs font-bold",
+                                innerText: size,
+                              }),
+                            ],
+                          });
+                        }),
                       }),
                     ],
                   }),
@@ -135,13 +152,15 @@ export default function SingleProduct(product) {
                       El({
                         element: "div",
                         className: "flex gap-2",
-                        // children: product.colors.map((color) => {
-                        //   return El({
-                        //     element: "div",
-                        //     className:
-                        //       "w-9 h-9 flex justify-center bg-[black] items-center rounded-full",
-                        //   });
-                        // }),
+                        children: data.colors.map((color) => {
+                          return El({
+                            element: "div",
+                            className: `w-9 h-9 flex justify-center  items-center rounded-full hover:border-4 hover:border-green-700`,
+                            restAttrs: {
+                              style: `background-color:${color}`,
+                            },
+                          });
+                        }),
                       }),
                     ],
                   }),
@@ -166,24 +185,39 @@ export default function SingleProduct(product) {
                         className: "font-bold px-4 rounded-full",
                         children: [
                           El({
-                            element: "span",
-                            className: "flex items-center icon-[ep--minus]",
+                            element: "img",
+                            className: "",
+                            src: "/src/assets/images/minus.svg",
                           }),
+                        ],
+                        eventListener: [
+                          {
+                            event: "click",
+                            callback: minus,
+                          },
                         ],
                       }),
                       El({
                         element: "span",
+                        id: "quantity",
                         className: "font-bold px-3",
-                        innerText: "0",
+                        innerText: "1",
                       }),
                       El({
                         element: "button",
                         className: "font-bold px-4 rounded-full",
                         children: [
                           El({
-                            element: "span",
-                            className: "flex items-center icon-[ep--plus]",
+                            element: "img",
+                            className: "",
+                            src: "/src/assets/images/add.svg",
                           }),
+                        ],
+                        eventListener: [
+                          {
+                            event: "click",
+                            callback: plus,
+                          },
                         ],
                       }),
                     ],
@@ -210,12 +244,20 @@ export default function SingleProduct(product) {
                   }),
                   El({
                     element: "span",
+                    id: "price",
                     className: "text-lg font-bold",
-                    innerText: "$ 0.00",
+                    innerText: `$${data.price}`,
                   }),
                 ],
               }),
-              Button("Add to Cart"),
+              Button("Add to Cart", "w-64", [
+                {
+                  event: "click",
+                  callback: () => {
+                    patchData(data);
+                  },
+                },
+              ]),
             ],
           }),
         ],

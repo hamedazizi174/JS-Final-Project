@@ -21,7 +21,7 @@ export default function Products(data) {
       getDataByBrand(productBrand).then((res) => {
         res.forEach((product) => {
           productWrapper.append(
-            Product(product.name, product.imageURL, product.price)
+            Product(product.name, product.imageURL, product.price, product.id)
           );
         });
       });
@@ -30,7 +30,7 @@ export default function Products(data) {
       getData("products").then((res) => {
         res.forEach((product) => {
           productWrapper.append(
-            Product(product.name, product.imageURL, product.price)
+            Product(product.name, product.imageURL, product.price, product.id)
           );
         });
       });

@@ -31,8 +31,8 @@ router
   .on("/wishlist", () => {
     changePage(wishlistPage);
   })
-  .on("/singleProduct", () => {
-    changePage(singleProductPage);
+  .on("/singleProduct/:id", ({ data }) => {
+    changePage(singleProductPage, data);
   })
   .on("/orders", () => {
     changePage(ordersPage);
