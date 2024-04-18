@@ -1,6 +1,6 @@
 import El from "@/utils/El/El";
 
-export default function NavItem(src, title) {
+export default function NavItem(src, title, eventListener = []) {
   return El({
     element: "div",
     children: [
@@ -15,5 +15,6 @@ export default function NavItem(src, title) {
         innerText: title,
       }),
     ],
+    eventListener: eventListener,
   });
 }
