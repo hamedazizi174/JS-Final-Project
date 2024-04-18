@@ -16,5 +16,16 @@ export default function Home() {
       MostPopular(),
       Products("products"),
     ],
+    eventListener: [
+      {
+        event: "click",
+        callback: (event) => {
+          event.currentTarget.lastChild.remove();
+          const el = event.target.innerText.toUpperCase();
+          const elem = { brand: el };
+          event.currentTarget.append(Products(elem));
+        },
+      },
+    ],
   });
 }

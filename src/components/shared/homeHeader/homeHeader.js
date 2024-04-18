@@ -23,7 +23,7 @@ export default function HomeHeader(text = "", elem = El({ element: "div" })) {
       El({
         element: "p",
         className: "text-primary font-semibold text-xl h-8",
-        innerText: text,
+        innerText: text.brand ? text.brand : text,
       }),
       elem,
     ],

@@ -7,6 +7,13 @@ export async function getData(endPoint) {
   return data;
 }
 
+export async function getDataByBrand(brand) {
+  const { data } = await axios.get(
+    `${BASE_URL}/products?brand=${brand.toUpperCase()}`
+  );
+  return data;
+}
+
 export async function postData(endPoint, data) {
   await axios.post(`${postData}/${endPoint}`, data);
 }

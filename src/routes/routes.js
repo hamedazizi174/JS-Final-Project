@@ -22,8 +22,8 @@ router
   .on("/home", () => {
     changePage(homePage);
   })
-  .on("/brand", () => {
-    changePage(brandPage);
+  .on("/brand/:brand", ({ data }) => {
+    changePage(brandPage, data);
   })
   .on("/mostPopular", () => {
     changePage(mostPopularPage);

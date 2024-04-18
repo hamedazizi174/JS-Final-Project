@@ -22,7 +22,7 @@ export default function Brands() {
           {
             event: "click",
             callback: () => {
-              router.navigate("/brand");
+              router.navigate("/brand/nike");
             },
           },
         ],
@@ -30,26 +30,74 @@ export default function Brands() {
       El({
         element: "img",
         src: adidas,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/adidas");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
         src: puma,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/puma");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
         src: asics,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/asics");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
         src: reebok,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/reebok");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
         src: newBa,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/new balance");
+            },
+          },
+        ],
       }),
       El({
         element: "img",
         src: converse,
+        eventListener: [
+          {
+            event: "click",
+            callback: () => {
+              router.navigate("/brand/converse");
+            },
+          },
+        ],
       }),
       El({
         element: "img",

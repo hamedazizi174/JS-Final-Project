@@ -8,5 +8,16 @@ export default function MostPopularPage() {
     element: "div",
     className: "px-6 pt-20",
     children: [HomeHeader("Most Popular"), MostPopular(), Products("products")],
+    eventListener: [
+      {
+        event: "click",
+        callback: (event) => {
+          event.currentTarget.lastChild.remove();
+          const el = event.target.innerText.toUpperCase();
+          const elem = { brand: el };
+          event.currentTarget.append(Products(elem));
+        },
+      },
+    ],
   });
 }
