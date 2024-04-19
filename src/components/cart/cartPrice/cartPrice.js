@@ -4,7 +4,7 @@ import El from "@/utils/El/El";
 export default function CartPrice() {
   return El({
     element: "div",
-    className: "flex gap-5 pt-3 pb-5 fixed bottom-16",
+    className: "flex gap-5 pt-3 pb-5 fixed bottom-16 bg-white",
     children: [
       El({
         element: "div",

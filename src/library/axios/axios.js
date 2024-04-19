@@ -17,6 +17,7 @@ export async function getDataByBrand(brand) {
 // export async function postData(endPoint, data) {
 //   await axios.post(`${postData}/${endPoint}`, data);
 // }
+
 export async function patchData(Data) {
   const { data } = await axios.get(`${BASE_URL}/users/1`);
   const cart = data.cart.concat(Data);
@@ -28,9 +29,7 @@ export async function getDataById(id) {
   return data;
 }
 
-// export async function setDataToApi(data) {
-//   const { data: productData } = await axios.get(`${BASE_URL}/users/1`);
-//   const cart = productData.cart.concat(data);
-//   let response = await axios.patch(`${BASE_URL}/users/1`, { cart });
-//   return response.data;
-// }
+export async function getCart() {
+  const { data } = await axios.get(`${BASE_URL}/users/1`);
+  return data.cart;
+}
